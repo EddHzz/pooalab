@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  pom.xml do POOALAB (responsável: Pessoa 1).
+  Java 17 + JUnit 5. Nenhum framework pesado e nenhum banco de dados.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>br.edu.ucsal</groupId>
+    <artifactId>pooalab-eventos</artifactId>
+    <version>0.1.0</version>
+    <packaging>jar</packaging>
+
+    <name>POOALAB - Inscrição e certificados de eventos acadêmicos</name>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.10.2</junit.version>
+        <classe.principal>br.edu.ucsal.eventos.app.Main</classe.principal>
+    </properties>
+
+    <dependencies>
+        <!-- Única dependência de terceiros: JUnit 5 (licença EPL 2.0), só para testes. -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Roda os testes JUnit 5 com "mvn test". -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+
+            <!-- Gera um .jar executável com "mvn package" (java -jar target/pooalab-eventos-0.1.0.jar). -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${classe.principal}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Permite rodar direto com "mvn compile exec:java". -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>${classe.principal}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
