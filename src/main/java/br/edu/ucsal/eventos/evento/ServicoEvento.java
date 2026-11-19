@@ -2,6 +2,7 @@ package br.edu.ucsal.eventos.evento;
 
 import br.edu.ucsal.eventos.dominio.Evento;
 import br.edu.ucsal.eventos.dominio.Participante;
+import br.edu.ucsal.eventos.dominio.RegraNegocioException;
 import br.edu.ucsal.eventos.dominio.TipoEvento;
 import br.edu.ucsal.eventos.repositorio.Repositorio;
 
@@ -28,8 +29,8 @@ public class ServicoEvento {
 
     /** Registra alguém para ser avisado quando um evento for encerrado. */
     public void adicionarObservador(ObservadorEncerramento observador) {
-        // TODO Dev A: guardar o observador na lista (não aceitar nulo).
-        throw new UnsupportedOperationException("TODO Dev A: adicionarObservador");
+        // guarda quem quer ser avisado quando um evento encerrar (não aceita nulo)
+        observadores.add(Objects.requireNonNull(observador, "O observador não pode ser nulo."));
     }
 
     /**
@@ -38,11 +39,14 @@ public class ServicoEvento {
      */
     public Evento criarEvento(String codigo, String titulo, TipoEvento tipo, int vagas, int cargaHoraria,
                               LocalDate prazoInscricao, Participante organizador, Participante palestrante) {
-        // TODO Dev A:
-        //  1. se eventos.existe(codigo), lançar RegraNegocioException("Já existe um evento com o código ...")
-        //  2. criar o Evento (o construtor já valida vagas e carga horária)
-        //  3. salvar no repositório e devolver
-        throw new UnsupportedOperationException("TODO Dev A: criarEvento");
+        // regra: dois eventos não podem ter o mesmo código
+        if (eventos.existe(codigo)) {
+            throw new RegraNegocioException("Já existe um evento com o código " + codigo + ".");
+        }
+        // o construtor do Evento já valida vagas, carga horária e campos obrigatórios
+        Evento evento = new Evento(codigo, titulo, tipo, vagas, cargaHoraria,
+                prazoInscricao, organizador, palestrante);
+        return eventos.salvar(evento);
     }
 
     /**
@@ -50,12 +54,15 @@ public class ServicoEvento {
      * Deve lançar RegraNegocioException se o código não existir.
      */
     public Evento encerrarEvento(String codigo) {
-        // TODO Dev A:
-        //  1. buscar o evento pelo código (não achou -> RegraNegocioException)
-        //  2. chamar evento.encerrar()
-        //  3. percorrer a lista de observadores chamando eventoEncerrado(evento)
-        //  4. devolver o evento
-        throw new UnsupportedOperationException("TODO Dev A: encerrarEvento");
+        // busca o evento; se não existir, Optional vazio vira exceção
+        Evento evento = eventos.buscarPorId(codigo)
+                .orElseThrow(() -> new RegraNegocioException("Evento não encontrado: " + codigo));
+        evento.encerrar(); // o próprio Evento impede encerrar duas vezes
+        // Observer: avisa todos os interessados (o emissor de certificados será um deles)
+        for (ObservadorEncerramento observador : observadores) {
+            observador.eventoEncerrado(evento);
+        }
+        return evento;
     }
 
     public List<Evento> listarEventos() {
