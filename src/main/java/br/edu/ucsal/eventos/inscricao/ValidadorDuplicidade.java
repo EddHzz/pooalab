@@ -3,6 +3,7 @@ package br.edu.ucsal.eventos.inscricao;
 import br.edu.ucsal.eventos.dominio.Evento;
 import br.edu.ucsal.eventos.dominio.Inscricao;
 import br.edu.ucsal.eventos.dominio.Participante;
+import br.edu.ucsal.eventos.dominio.RegraNegocioException;
 import br.edu.ucsal.eventos.repositorio.Repositorio;
 
 import java.time.LocalDate;
@@ -22,8 +23,10 @@ public class ValidadorDuplicidade extends ValidadorInscricao {
 
     @Override
     protected void verificar(Participante participante, Evento evento, LocalDate dataInscricao) {
-        // TODO Dev A: se inscricoes.existe(Inscricao.gerarId(participante, evento)),
-        //               lançar RegraNegocioException("... já está inscrito(a) em ...").
-        throw new UnsupportedOperationException("TODO Dev A: ValidadorDuplicidade");
+        // o id é "matrícula:evento": a mesma pessoa no mesmo evento gera sempre o mesmo id
+        if (inscricoes.existe(Inscricao.gerarId(participante, evento))) {
+            throw new RegraNegocioException(participante.getNome() + " já está inscrito(a) no evento "
+                    + evento.getCodigo() + ".");
+        }
     }
 }

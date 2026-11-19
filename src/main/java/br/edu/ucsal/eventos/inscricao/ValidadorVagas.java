@@ -3,6 +3,7 @@ package br.edu.ucsal.eventos.inscricao;
 import br.edu.ucsal.eventos.dominio.Evento;
 import br.edu.ucsal.eventos.dominio.Inscricao;
 import br.edu.ucsal.eventos.dominio.Participante;
+import br.edu.ucsal.eventos.dominio.RegraNegocioException;
 import br.edu.ucsal.eventos.repositorio.Repositorio;
 
 import java.time.LocalDate;
@@ -22,9 +23,10 @@ public class ValidadorVagas extends ValidadorInscricao {
 
     @Override
     protected void verificar(Participante participante, Evento evento, LocalDate dataInscricao) {
-        // TODO Dev A: contar as inscrições deste evento
-        //   (inscricoes.buscar(i -> i.getEvento().equals(evento)).size())
-        //   e, se for >= evento.getVagas(), lançar RegraNegocioException("Vagas esgotadas ...").
-        throw new UnsupportedOperationException("TODO Dev A: ValidadorVagas");
+        int inscritos = inscricoes.buscar(i -> i.getEvento().equals(evento)).size(); // inscritos deste evento
+        if (inscritos >= evento.getVagas()) {
+            throw new RegraNegocioException("Vagas esgotadas para o evento " + evento.getCodigo()
+                    + " (" + inscritos + " de " + evento.getVagas() + ").");
+        }
     }
 }

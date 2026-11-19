@@ -1,27 +1,23 @@
 package br.edu.ucsal.eventos.inscricao;
 
-import br.edu.ucsal.eventos.dominio.Evento;
-import br.edu.ucsal.eventos.dominio.Inscricao;
-import br.edu.ucsal.eventos.dominio.Participante;
-import br.edu.ucsal.eventos.dominio.RegraNegocioException;
-import br.edu.ucsal.eventos.dominio.TipoEvento;
+import br.edu.ucsal.eventos.dominio.*;
 import br.edu.ucsal.eventos.repositorio.Repositorio;
 import br.edu.ucsal.eventos.repositorio.RepositorioEmMemoria;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.Clock;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Testes-contrato da Dev A. Remova o @Disabled quando implementar a cadeia.
+ * Testes-contrato do Dev A: a cadeia de validação da inscrição.
  * O "hoje" é fixado em 18/11/2026 com Clock.fixed, então o teste não depende do dia real.
  */
-@Disabled("Dev A: remova quando implementar a cadeia de validação")
 class ServicoInscricaoTest {
 
     private static final ZoneId FUSO = ZoneId.of("America/Bahia");
@@ -72,5 +68,11 @@ class ServicoInscricaoTest {
         Evento ev = evento(10, LocalDate.of(2026, 11, 17)); // prazo foi ontem
         assertThrows(RegraNegocioException.class, () -> servico.inscrever(joao, ev));
         assertEquals(0, inscricoes.contar());
+    }
+
+    @Test
+    void ultimoDiaDoPrazoAindaAceita() {
+        Evento ev = evento(10, LocalDate.of(2026, 11, 18)); // o "hoje" do teste é 18/11
+        assertNotNull(servico.inscrever(joao, ev));
     }
 }
