@@ -6,20 +6,19 @@ import br.edu.ucsal.eventos.dominio.RegraNegocioException;
 import br.edu.ucsal.eventos.dominio.TipoEvento;
 import br.edu.ucsal.eventos.repositorio.RepositorioEmMemoria;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Testes-contrato da Dev A. Remova o @Disabled quando implementar o ServicoEvento
  * e acrescente pelo menos mais um teste seu.
  */
-@Disabled("Dev A: remova quando implementar ServicoEvento")
 class ServicoEventoTest {
 
     private ServicoEvento servico;
@@ -56,4 +55,11 @@ class ServicoEventoTest {
 
         assertEquals(List.of("EV1"), avisados);
     }
+
+
+    @Test
+    void encerrarCodigoInexistenteLancaExcecao() {
+        assertThrows(RegraNegocioException.class, () -> servico.encerrarEvento("NAO-EXISTE"));
+    }
 }
+
