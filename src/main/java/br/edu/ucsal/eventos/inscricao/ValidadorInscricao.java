@@ -27,8 +27,8 @@ public abstract class ValidadorInscricao {
      * {@code a.encadear(b).encadear(c);}
      */
     public ValidadorInscricao encadear(ValidadorInscricao proximo) {
-        // TODO Dev A: guardar o próximo elo e devolvê-lo.
-        throw new UnsupportedOperationException("TODO Dev A: encadear");
+        this.proximo = proximo;
+        return proximo; // devolve o próximo para permitir a.encadear(b).encadear(c)
     }
 
     /**
@@ -36,10 +36,10 @@ public abstract class ValidadorInscricao {
      * É final para que nenhuma subclasse quebre a lógica de repasse.
      */
     public final void validar(Participante participante, Evento evento, LocalDate dataInscricao) {
-        // TODO Dev A:
-        //  1. chamar verificar(participante, evento, dataInscricao)  -> pode lançar exceção
-        //  2. se existir próximo, chamar proximo.validar(...)
-        throw new UnsupportedOperationException("TODO Dev A: validar");
+        verificar(participante, evento, dataInscricao); // se recusar, lança exceção e a corrente para aqui
+        if (proximo != null) {
+            proximo.validar(participante, evento, dataInscricao); // passou: repassa para o próximo elo
+        }
     }
 
     /** A regra específica deste elo. Lança RegraNegocioException quando a inscrição deve ser recusada. */

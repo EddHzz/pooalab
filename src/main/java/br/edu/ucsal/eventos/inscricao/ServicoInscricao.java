@@ -36,10 +36,9 @@ public class ServicoInscricao {
      * Inscreve o participante no evento, ou lança RegraNegocioException com o motivo da recusa.
      */
     public Inscricao inscrever(Participante participante, Evento evento) {
-        // TODO Dev A:
-        //  1. LocalDate hoje = LocalDate.now(relogio);
-        //  2. cadeiaDeValidacao.validar(participante, evento, hoje);
-        //  3. criar a Inscricao, salvar no repositório e devolver
-        throw new UnsupportedOperationException("TODO Dev A: inscrever");
+        LocalDate hoje = LocalDate.now(relogio);               // "hoje" vem do Clock (nos testes é fixo)
+        cadeiaDeValidacao.validar(participante, evento, hoje); // passa pelos 3 elos; se algum recusar, para aqui
+        Inscricao inscricao = new Inscricao(participante, evento, hoje);
+        return inscricoes.salvar(inscricao);                   // só chega aqui se ninguém recusou
     }
 }

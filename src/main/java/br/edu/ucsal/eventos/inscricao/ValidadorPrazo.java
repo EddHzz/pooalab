@@ -2,6 +2,7 @@ package br.edu.ucsal.eventos.inscricao;
 
 import br.edu.ucsal.eventos.dominio.Evento;
 import br.edu.ucsal.eventos.dominio.Participante;
+import br.edu.ucsal.eventos.dominio.RegraNegocioException;
 
 import java.time.LocalDate;
 
@@ -13,8 +14,12 @@ public class ValidadorPrazo extends ValidadorInscricao {
 
     @Override
     protected void verificar(Participante participante, Evento evento, LocalDate dataInscricao) {
-        // TODO Dev A: se evento.isEncerrado() ou !evento.prazoAbertoEm(dataInscricao),
-        //               lançar RegraNegocioException("Inscrições encerradas para ...").
-        throw new UnsupportedOperationException("TODO Dev A: ValidadorPrazo");
+        if (evento.isEncerrado()) {
+            throw new RegraNegocioException("O evento " + evento.getCodigo() + " já foi encerrado.");
+        }
+        if (!evento.prazoAbertoEm(dataInscricao)) {
+            throw new RegraNegocioException("Inscrições encerradas para o evento " + evento.getCodigo()
+                    + " (prazo: " + evento.getPrazoInscricao() + ").");
+        }
     }
 }
