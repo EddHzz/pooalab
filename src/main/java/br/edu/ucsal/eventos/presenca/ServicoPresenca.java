@@ -4,16 +4,12 @@ import br.edu.ucsal.eventos.dominio.Evento;
 import br.edu.ucsal.eventos.dominio.Inscricao;
 import br.edu.ucsal.eventos.dominio.Participante;
 import br.edu.ucsal.eventos.dominio.Presenca;
+import br.edu.ucsal.eventos.dominio.RegraNegocioException;
 import br.edu.ucsal.eventos.repositorio.Repositorio;
 
 import java.util.Objects;
 
-/**
- * Registro de presença (check-in).
- * <p><b>Responsável: Dev B.</b> Veja docs/guias/dev-b-presenca-certificados.md</p>
- */
 public class ServicoPresenca {
-
     private final Repositorio<Inscricao, String> inscricoes;
     private final Repositorio<Presenca, String> presencas;
 
@@ -22,20 +18,20 @@ public class ServicoPresenca {
         this.presencas = Objects.requireNonNull(presencas);
     }
 
-    /**
-     * Registra a presença com as horas informadas.
-     * Regras: o evento não pode estar encerrado e a pessoa precisa estar inscrita
-     * (senão RegraNegocioException). Registrar de novo substitui as horas anteriores.
-     */
     public Presenca registrarCheckIn(Participante participante, Evento evento, int horasPresentes) {
-        // TODO Dev B:
-        //  1. evento encerrado -> RegraNegocioException
-        //  2. !inscricoes.existe(Inscricao.gerarId(participante, evento)) -> RegraNegocioException
-        //  3. criar Presenca (o construtor valida as horas), salvar e devolver
-        throw new UnsupportedOperationException("TODO Dev B: registrarCheckIn");
+        if (evento.isEncerrado()) {
+            throw new RegraNegocioException("O evento " + evento.getCodigo() + " já foi encerrado.");
+        }
+        if (!inscricoes.existe(Inscricao.gerarId(participante, evento))) {
+            throw new RegraNegocioException(participante.getNome() + " não está inscrito(a) no evento "
+                    + evento.getCodigo() + ".");
+        }
+
+        Presenca presenca = new Presenca(participante, evento, horasPresentes);
+
+        return presencas.salvar(presenca);
     }
 
-    /** Atalho para palestra: presença com a carga horária completa. */
     public Presenca registrarCheckIn(Participante participante, Evento evento) {
         return registrarCheckIn(participante, evento, evento.getCargaHoraria());
     }
