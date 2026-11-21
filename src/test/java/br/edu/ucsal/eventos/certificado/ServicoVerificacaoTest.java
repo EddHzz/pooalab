@@ -7,20 +7,13 @@ import br.edu.ucsal.eventos.dominio.TipoCertificado;
 import br.edu.ucsal.eventos.dominio.TipoEvento;
 import br.edu.ucsal.eventos.repositorio.Repositorio;
 import br.edu.ucsal.eventos.repositorio.RepositorioEmMemoria;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Teste-contrato da Dev B. Usa uma subclasse anônima de Certificado só para o teste;
- * depois de criar CertificadoParticipante, você pode trocá-la pela classe real.
- */
-@Disabled("Dev B: remova quando implementar ServicoVerificacao")
 class ServicoVerificacaoTest {
-
     @Test
     void encontraCertificadoIgnorandoEspacosEMaiusculas() {
         Participante org = new Participante("ORG-01", "Profa. Ana Exemplo", "ana@exemplo.edu.br");
