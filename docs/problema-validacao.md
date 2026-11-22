@@ -13,13 +13,13 @@
 | Campo | Preenchimento |
 |---|---|
 | Público | Organizadores (professores, coordenação, ligas e centros acadêmicos) e participantes (estudantes) de palestras e minicursos acadêmicos. |
-| Situação | Na divulgação e inscrição de eventos e, depois do evento, quando o participante precisa do certificado para comprovar horas complementares. [PREENCHER: detalhar com o que for observado] |
-| Problema | Inscrições desorganizadas (duplicidade, controle de vagas e prazo feito à mão) e demora na emissão do certificado. |
-| Impacto | Retrabalho para quem organiza e atraso para quem precisa comprovar horas. [PREENCHER: exemplos e estimativas reais coletadas] |
-| Alternativa atual | Processo da faculdade, com etapas manuais e um sistema institucional (usado só como referência; nada foi copiado). [PREENCHER: como é hoje, segundo os entrevistados] |
-| Hipótese crítica | [PREENCHER. Sugestão a validar: "organizadores gastam tempo relevante conferindo inscrições e presenças à mão, e participantes esperam dias pelo certificado"] |
-| Evidência | [PREENCHER: que informação confirmaria ou refutaria a hipótese, ex.: relatos de organizadores, tempo médio de espera relatado por estudantes] |
-| Recorte | Fluxo inscrição → check-in → encerramento → certificado automático → verificação por código. |
+| Situação | Durante a etapa de registro de presença e, principalmente, no período pós-evento em que o estudante aguarda a emissão do certificado de participação. |
+| Problema | Embora a entrada física nos eventos ocorra sem grandes filas, os participantes não têm segurança de que sua presença foi realmente contabilizada e enfrentam demora excessiva ou ausência de envio dos certificados após o término da atividade. |
+| Impacto | Retrabalho para quem organiza, insegurança sobre a validação da frequência, espera de meses (chegando de um ano para o outro) para receber o certificado e atraso para contabilizar horas complementares. |
+| Alternativa atual | O registro de presença é feito por QR code na entrada, sem filas nem lotação nos relatos. O certificado é disponibilizado depois pela organização, sem prazo claro para o participante. |
+| Hipótese crítica | Se a presença for registrada de forma confiável no evento, o certificado poderá ser gerado automaticamente logo depois, reduzindo a espera e a insegurança do participante. |
+| Evidência | Levantamento realizado com estudantes da instituição (BES 5º sem. noturno e Jornalismo 4º sem. matutino): ambos relataram entrada tranquila, mas 100% apontaram demora ou não recebimento do certificado (incluindo espera de um ano) e indicaram o registro de presença e a entrega do certificado como as etapas que geram mais insegurança. |
+| Recorte | O fluxo principal do MVP seria inscrição → presença → emissão do certificado, com foco na emissão automática após a presença confirmada. Os relatórios ficam como apoio ao organizador. |
 
 ## Anexo B: Registro de validação
 
@@ -27,9 +27,9 @@ Uma linha por entrevista, observação, teste ou fonte. **Sem nome das pessoas**
 
 | Data e perfil | Hipótese | Evidência observada | Decisão |
 |---|---|---|---|
-| [__/__/2026 — ex.: estudante de ADS, 4º semestre] | [PREENCHER] | [PREENCHER] | [PREENCHER] |
-| [__/__/2026 — ex.: organizador(a) de evento acadêmico] | [PREENCHER] | [PREENCHER] | [PREENCHER] |
-| [__/__/2026 — perfil] | [PREENCHER] | [PREENCHER] | [PREENCHER] |
+| 03/11/2026 — Estudante de Bacharelado em Engenharia de Software, 5º semestre (noturno) | Imaginávamos que os estudantes enfrentavam grandes filas e dificuldade física para entrar e registrar presença nos eventos. | Relatou que não teve muita dificuldade na entrada, mas ainda não recebeu o certificado do último evento, já chegou a receber um certificado apenas no ano seguinte e apontou o **registro de presença** como a etapa de maior insegurança. | **Alterar** o foco do problema: reduzir a ênfase em filas físicas na portaria e priorizar a garantia imediata de que a presença foi validada e vinculada ao certificado. |
+| 03/11/2026 — Estudante de Jornalismo, 4º semestre (matutino) | Imaginávamos que a desorganização e a hiperlotação na entrada eram as principais queixas dos participantes. | Informou que a entrada foi tranquila (leitura de QR Code e sem hiperlotação), mas que o certificado demora muito para ficar disponível, apontando a **entrega do certificado** como a etapa que gera mais insegurança. | **Manter** a integração automática entre a confirmação de presença  e a emissão de certificados como o fluxo central do MVP. |
+| 03/11/2026 — Estudante de Direito, 6º semestre (noturno) | Imaginávamos que o horário apertado do turno noturno gerava tumulto e atrasos no credenciamento de entrada dos eventos. | Relatou que o acesso ao evento foi rápido e sem fila, porém destacou a falta de confirmação imediata da frequência e a demora de meses para a liberação do certificado para horas complementares. | **Manter** o vínculo direto entre o check-in validado e a geração automática do certificado, garantindo feedback imediato ao participante. |
 | [__/__/2026 — teste do MVP com um usuário] | O fluxo é compreensível sem explicação? | [PREENCHER: o que a pessoa conseguiu ou não fazer] | [PREENCHER: o que mudou no MVP] |
 
 **Síntese dos aprendizados:** [PREENCHER]
