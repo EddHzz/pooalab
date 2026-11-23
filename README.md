@@ -2,7 +2,7 @@
 
 Sistema de console em Java para organizar palestras e minicursos acadêmicos. O organizador cria o evento; o participante se inscreve (o sistema bloqueia duplicidade, vaga esgotada e prazo encerrado); a presença é registrada; ao encerrar o evento, os certificados de quem tem direito são emitidos automaticamente; e qualquer pessoa confere um certificado pelo código de verificação.
 
-> **Estado atual: MVP completo.** Fluxo inscrição → presença → certificado funcionando no menu de console, com 47 testes automatizados passando. Quem fez cada parte: [docs/divisao-da-equipe.md](docs/divisao-da-equipe.md).
+> **Estado atual: MVP completo.** Fluxo inscrição → presença → certificado funcionando no menu de console, com 47 testes automatizados passando (`mvn clean test`). Para rodar: `mvn -q compile exec:java` (detalhes em [Instalação e execução](#instalação-e-execução)). Quem fez cada parte: [docs/divisao-da-equipe.md](docs/divisao-da-equipe.md).
 
 ## Sumário
 
@@ -34,15 +34,15 @@ Nas entrevistas, os estudantes disseram que a entrada nos eventos é tranquila; 
 
 ## Integrantes e turma
 
-**Turma:** BES, 5º semestre, noturno.
+**Turma:** ESW-NOT-PIT-4S-T1.
 
 | Nome completo | Papel | Responsabilidade |
 |---|---|---|
-| [EDENILTON OLIVEIRA MOTA FILHO] | Dev A (líder técnico) | Eventos e Observer, inscrição (Chain of Responsibility), relatórios (Streams), revisão dos PRs |
-| [VITOR INACIO] | Dev B | Presença e elegibilidade (Strategy), certificados (Factory Method), emissão e verificação |
-| [GILMAR ARAÚJO SANTOS JUNIOR] | Dev C (integrador) | Menu de console, dados de demonstração, montagem e teste do fluxo completo |
-| [JÚLIA LESSA SOARES VENTURA] | Pessoa D | Problema e validação com usuários reais (Anexos A e B) |
-| [JADE EVELYN SILVA DE MORAIS] | Pessoa E | Pitch, teste de reprodutibilidade, vídeo de contingência, Anexo E e entrega |
+| Edenilton Oliveira Mota Filho | Dev A (líder técnico) | Eventos e Observer, inscrição (Chain of Responsibility), relatórios (Streams), revisão dos PRs |
+| Vitor Inácio | Dev B | Presença e elegibilidade (Strategy), certificados (Factory Method), emissão e verificação |
+| Gilmar Araújo Santos Júnior | Dev C (integrador) | Menu de console, dados de demonstração, montagem e teste do fluxo completo |
+| Júlia Lessa Soares Ventura | Pessoa D | Problema e validação com usuários reais (Anexos A e B) |
+| Jade Evelyn Silva de Morais | Pessoa E | Pitch, teste de reprodutibilidade, vídeo de contingência, Anexo E e entrega |
 
 Detalhes, cronograma e regras: [docs/divisao-da-equipe.md](docs/divisao-da-equipe.md).
 
@@ -66,8 +66,8 @@ Sem frameworks e sem banco de dados: os dados ficam em memória (`RepositorioEmM
 
 ```bash
 # 1. Obter o código
-git clone [git clone https://github.com/EddHzz/pooalab.git]
-cd pooalab-eventos
+git clone https://github.com/EddHzz/pooalab.git
+cd pooalab
 
 # 2. Compilar e rodar os testes
 mvn clean test
@@ -80,6 +80,8 @@ mvn -q clean package
 java -jar target/pooalab-eventos-0.1.0.jar
 ```
 
+No menu, digite **8** para ver a demonstração automática do fluxo completo e **0** para sair.
+
 **Windows:** se os acentos aparecerem trocados no terminal, rode `chcp 65001` antes de executar.
 
 ## Testes
@@ -88,17 +90,23 @@ java -jar target/pooalab-eventos-0.1.0.jar
 mvn test
 ```
 
-| Teste | O que verifica | Estado na base |
+| Teste | O que verifica | Estado |
 |---|---|---|
 | `EventoTest`, `ParticipanteTest` | Validações do domínio (vagas, carga, prazo, encerrar duas vezes, igualdade) | Passando |
 | `RepositorioEmMemoriaTest` | Salvar, buscar, filtrar, lista imutável | Passando |
-| `ServicoEventoTest` | Criar evento, código repetido, Observer avisado ao encerrar | `@Disabled` até o Dev A implementar |
-| `ServicoInscricaoTest` | Sucesso, duplicidade, vaga esgotada, prazo encerrado | `@Disabled` até o Dev A implementar |
-| `ElegibilidadeTest` | Regra dos 75% do minicurso e seleção da regra por tipo | `@Disabled` até o Dev B implementar |
-| `ServicoVerificacaoTest` | Verificação por código | `@Disabled` até o Dev B implementar |
-| `FluxoPrincipalTest` | Fluxo completo de ponta a ponta | A criar (Dev C) |
+| `ServicoEventoTest` | Criar evento, código repetido, Observer avisado ao encerrar | Passando |
+| `ServicoInscricaoTest` | Sucesso, duplicidade, vaga esgotada, prazo encerrado, último dia do prazo | Passando |
+| `ElegibilidadeTest` | Regra dos 75% do minicurso e seleção da regra por tipo | Passando |
+| `ServicoPresencaTest` | Check-in de inscrito, recusa sem inscrição ou com evento encerrado, lista de elegíveis | Passando |
+| `FabricaCertificadoTest` | Cada fábrica devolve o tipo certo, texto e formato do código | Passando |
+| `EmissorCertificadosTest` | Emite para elegíveis, palestrante e organizador; não emite para quem ficou abaixo de 75% | Passando |
+| `ServicoVerificacaoTest` | Verificação por código | Passando |
+| `ServicoRelatoriosTest` | Inscritos, presentes e elegíveis (Streams) | Passando |
+| `DadosDemonstracaoTest` | Dados fictícios carregados sem duplicar | Passando |
+| `MenuConsoleTest` | Roteiro pelo menu, entradas inválidas, demonstração automática | Passando |
+| `FluxoPrincipalTest` | Fluxo completo de ponta a ponta | Passando |
 
-Na base: `Tests run: 19, Failures: 0, Errors: 0, Skipped: 10`. Ao final, nenhum teste deve estar `Skipped`.
+Resultado: `Tests run: 47, Failures: 0, Errors: 0, Skipped: 0`.
 
 ## Dados de demonstração
 
@@ -112,15 +120,15 @@ Todos fictícios (nomes inventados, e-mails `@exemplo.edu.br`, matrículas `ALU-
 
 ## Roteiro para reproduzir o fluxo principal
 
-Passo a passo completo em [demo/roteiro-demo.md](demo/roteiro-demo.md). Resumo:
+Passo a passo completo em [demo/roteiro-demo.md](demo/roteiro-demo.md). A opção **8** do menu executa este resumo automaticamente:
 
-1. Listar eventos.
+1. Listar eventos (`PL01`, `MC01`, `PL02`).
 2. Inscrever `ALU-03` em `MC01` (aceita) e `ALU-04` em `MC01` (**recusada: vagas esgotadas**).
-3. Repetir a inscrição de `ALU-03` (**recusada: duplicada**) e tentar `PL02` (**recusada: prazo encerrado**).
-4. Check-in no `MC01` com 8h, 6h e 4h.
-5. Relatório: 3 inscritos, 3 presentes, 2 elegíveis.
-6. Encerrar `MC01`: certificados emitidos automaticamente.
-7. Verificar um código impresso (encontrado) e um código inventado (não encontrado).
+3. Inscrever `ALU-01` em `PL01`, onde já está inscrito (**recusada: duplicada**), e `ALU-01` em `PL02` (**recusada: prazo encerrado**).
+4. Check-in no `MC01`: `ALU-01` com 8h, `ALU-02` com 6h e `ALU-03` com 4h.
+5. Relatório do `MC01`: 3 inscritos, 3 presentes, 2 elegíveis (mínimo de 75% da carga).
+6. Encerrar `MC01`: certificados emitidos automaticamente (2 de participante, 1 de palestrante, 1 de organizador).
+7. Verificar um código impresso (encontrado) e o código inventado `CERT-0000-0000` (não encontrado).
 
 ## Arquitetura e conceitos de POO
 
@@ -184,7 +192,7 @@ br.edu.ucsal.eventos
 | Ficha do problema e validação (Anexos A e B) | [docs/problema-validacao.md](docs/problema-validacao.md) |
 | Definição do MVP (Anexo C) | [docs/definicao-mvp.md](docs/definicao-mvp.md) |
 | Roteiro do pitch (Anexo D) | [docs/roteiro-pitch.md](docs/roteiro-pitch.md) |
-| Pitch final | `docs/pitch.pdf` [PREENCHER: a equipe adiciona] |
+| Pitch final | [docs/pitch.pdf](docs/pitch.pdf) |
 | Declaração de IA e terceiros (Anexo E) | [docs/declaracao-ia-terceiros.md](docs/declaracao-ia-terceiros.md) |
 | Roteiro de demonstração | [demo/roteiro-demo.md](demo/roteiro-demo.md) |
 | Vídeo de contingência | [PREENCHER: link com acesso público] |
