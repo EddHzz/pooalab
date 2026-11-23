@@ -20,7 +20,7 @@ criar evento (vagas, carga horária, tipo) → inscrição com bloqueio de dupli
 
 **Fora do escopo:** login institucional, envio por e-mail, integração com sistemas da faculdade, banco de dados, interface gráfica, PDF do certificado, assinatura digital.
 
-**Maior risco:** [PREENCHER pela equipe. Sugestão: o público não perceber valor sem integração com o sistema institucional; ou a integração das 5 partes atrasar.]
+**Maior risco:** o MVP depende de o organizador registrar a presença no próprio sistema. As entrevistas mostraram que a faculdade já usa QR code na entrada, então, sem integração com esse registro, o organizador pode não adotar a ferramenta e o certificado continuaria atrasando. Um segundo risco, que de fato aconteceu, foi a integração das partes atrasar: o menu ficou pronto só no último dia, o que reduziu o tempo para o teste com usuários.
 
 **Teste principal:** teste automatizado do fluxo completo (`FluxoPrincipalTest`) e um teste guiado com pelo menos um usuário real, registrado no Anexo B.
 
