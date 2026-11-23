@@ -8,7 +8,7 @@
 
 **Solução:** POOALAB Eventos (nome provisório, a equipe pode trocar) — inscrição e certificados de eventos acadêmicos
 
-**Equipe, turma e integrantes:** [Turma: ESW-NOT-PIT-4S-T1 - Edenilton Mota, Gilmar Júnior, Jade Moraes, Júlia Lessa Soares Ventura, Vítor Inácio.]
+**Equipe, turma e integrantes:** [Turma: ESW-NOT-PIT-4S-T1 - Edenilton Oliveira Mota Filho, Gilmar Araújo Santos Júnior, Jade Evelyn Silva de Morais, Júlia Lessa Soares Ventura, Vítor Inácio.]
 
 | Campo | Preenchimento |
 |---|---|
