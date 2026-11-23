@@ -2,7 +2,7 @@
 
 Sistema de console em Java para organizar palestras e minicursos acadêmicos. O organizador cria o evento; o participante se inscreve (o sistema bloqueia duplicidade, vaga esgotada e prazo encerrado); a presença é registrada; ao encerrar o evento, os certificados de quem tem direito são emitidos automaticamente; e qualquer pessoa confere um certificado pelo código de verificação.
 
-> **Estado atual: base do projeto.** O domínio, o repositório em memória, as interfaces e os esqueletos estão prontos e o projeto compila com os testes da base passando. Os trechos marcados `TODO Dev A`, `TODO Dev B` e `TODO Dev C` são implementados pelos três desenvolvedores. **Quem faz o quê e como: [docs/divisao-da-equipe.md](docs/divisao-da-equipe.md).** Atualizem esta seção quando o MVP estiver completo.
+> **Estado atual: MVP completo.** Fluxo inscrição → presença → certificado funcionando no menu de console, com 47 testes automatizados passando. Quem fez cada parte: [docs/divisao-da-equipe.md](docs/divisao-da-equipe.md).
 
 ## Sumário
 
@@ -22,27 +22,27 @@ Sistema de console em Java para organizar palestras e minicursos acadêmicos. O 
 
 ## Problema, público e proposta de valor
 
-**Problema.** Para organizadores e participantes de eventos e palestras acadêmicas, que enfrentam inscrições desorganizadas e demora na emissão de certificados, a consequência é retrabalho para quem organiza e atraso para quem precisa comprovar horas. Hoje isso é resolvido com o processo da faculdade, que depende de etapas manuais e de um sistema institucional.
+**Problema.** Para estudantes que participam de palestras e minicursos acadêmicos, que não têm certeza de que a presença foi registrada e esperam meses pelo certificado, a consequência é insegurança e atraso para comprovar horas complementares. Hoje a entrada é por QR code, mas o certificado é liberado depois pela organização, sem prazo claro.
 
 **Público.** Organizadores de eventos acadêmicos (professores, coordenação, ligas, centros acadêmicos) e estudantes participantes.
 
 **Proposta de valor.** O certificado sai sozinho no momento em que o evento é encerrado, só para quem cumpriu a regra de presença, e cada certificado traz um código que qualquer pessoa pode conferir.
 
-**Validação.** Hipóteses, método e evidências em [docs/problema-validacao.md](docs/problema-validacao.md). [PREENCHER: 2 ou 3 linhas com o principal aprendizado da validação real.]
+Nas entrevistas, os estudantes disseram que a entrada nos eventos é tranquila; a insegurança está em confirmar a presença e receber o certificado. Por isso o MVP foca em presença confirmada e certificado emitido automaticamente.
 
 > O sistema institucional da faculdade é só a "alternativa atual". Nada dele foi copiado e todos os dados do projeto são fictícios.
 
 ## Integrantes e turma
 
-**Turma:** [PREENCHER]
+**Turma:** BES, 5º semestre, noturno.
 
 | Nome completo | Papel | Responsabilidade |
 |---|---|---|
-| [PREENCHER] | Dev A (líder técnico) | Eventos e Observer, inscrição (Chain of Responsibility), relatórios (Streams), revisão dos PRs |
-| [PREENCHER] | Dev B | Presença e elegibilidade (Strategy), certificados (Factory Method), emissão e verificação |
-| [PREENCHER] | Dev C (integrador) | Menu de console, dados de demonstração, montagem e teste do fluxo completo |
-| [PREENCHER] | Pessoa D | Problema e validação com usuários reais (Anexos A e B) |
-| [PREENCHER] | Pessoa E | Pitch, teste de reprodutibilidade, vídeo de contingência, Anexo E e entrega |
+| [EDENILTON OLIVEIRA MOTA FILHO] | Dev A (líder técnico) | Eventos e Observer, inscrição (Chain of Responsibility), relatórios (Streams), revisão dos PRs |
+| [VITOR INACIO] | Dev B | Presença e elegibilidade (Strategy), certificados (Factory Method), emissão e verificação |
+| [GILMAR ARAÚJO SANTOS JUNIOR] | Dev C (integrador) | Menu de console, dados de demonstração, montagem e teste do fluxo completo |
+| [JÚLIA LESSA SOARES VENTURA] | Pessoa D | Problema e validação com usuários reais (Anexos A e B) |
+| [JADE EVELYN SILVA DE MORAIS] | Pessoa E | Pitch, teste de reprodutibilidade, vídeo de contingência, Anexo E e entrega |
 
 Detalhes, cronograma e regras: [docs/divisao-da-equipe.md](docs/divisao-da-equipe.md).
 
@@ -66,7 +66,7 @@ Sem frameworks e sem banco de dados: os dados ficam em memória (`RepositorioEmM
 
 ```bash
 # 1. Obter o código
-git clone [PREENCHER: URL do repositório]
+git clone [git clone https://github.com/EddHzz/pooalab.git]
 cd pooalab-eventos
 
 # 2. Compilar e rodar os testes
