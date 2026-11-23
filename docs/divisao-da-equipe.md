@@ -6,11 +6,11 @@
 
 | Papel | Nome | Responsabilidade | Guia | Pontos da rubrica que mais dependem dele |
 |---|---|---|---|---|
-| **Dev A** (líder técnico) | [PREENCHER] | Eventos (criar/encerrar + Observer), inscrição (Chain of Responsibility), relatórios (Streams), `pom.xml`, revisão dos PRs | [dev-a-eventos-inscricao.md](guias/dev-a-eventos-inscricao.md) | MVP funcional (25), Qualidade (10), Bônus POOA (+5) |
-| **Dev B** | [PREENCHER] | Presença e elegibilidade (Strategy), certificados (Factory Method), emissão automática (Observer), verificação | [dev-b-presenca-certificados.md](guias/dev-b-presenca-certificados.md) | MVP funcional (25), Qualidade (10), Bônus POOA (+5) |
-| **Dev C** (integrador) | [PREENCHER] | Menu de console, dados de demonstração, montagem no `Main`, teste do fluxo completo | [dev-c-console-integracao.md](guias/dev-c-console-integracao.md) | MVP funcional (25), Utilidade (10), Demonstração (10) |
-| **Pessoa D** | [PREENCHER] | Entrevistas reais, Anexos A e B, teste com usuário | [pessoa-d-validacao.md](guias/pessoa-d-validacao.md) | Problema e validação (12), Decisões e respostas (7) |
-| **Pessoa E** | [PREENCHER] | Pitch em PDF, teste em outro computador, vídeo de contingência, README final, Anexo E, entrega | [pessoa-e-pitch-entrega.md](guias/pessoa-e-pitch-entrega.md) | Pitch (8), Reprodutibilidade (8), Transparência (5), Tempo (5) |
+| **Dev A** (líder técnico) | [EDENILTON OLIVEIRA MOTA FILHO] | Eventos (criar/encerrar + Observer), inscrição (Chain of Responsibility), relatórios (Streams), `pom.xml`, revisão dos PRs | [dev-a-eventos-inscricao.md](guias/dev-a-eventos-inscricao.md) | MVP funcional (25), Qualidade (10), Bônus POOA (+5) |
+| **Dev B** | [VITOR INACIO] | Presença e elegibilidade (Strategy), certificados (Factory Method), emissão automática (Observer), verificação | [dev-b-presenca-certificados.md](guias/dev-b-presenca-certificados.md) | MVP funcional (25), Qualidade (10), Bônus POOA (+5) |
+| **Dev C** (integrador) | [GILMAR ARAÚJO SANTOS JUNIOR] | Menu de console, dados de demonstração, montagem no `Main`, teste do fluxo completo | [dev-c-console-integracao.md](guias/dev-c-console-integracao.md) | MVP funcional (25), Utilidade (10), Demonstração (10) |
+| **Pessoa D** | [JÚLIA LESSA SOARES VENTURA] | Entrevistas reais, Anexos A e B, teste com usuário | [pessoa-d-validacao.md](guias/pessoa-d-validacao.md) | Problema e validação (12), Decisões e respostas (7) |
+| **Pessoa E** | [JADE EVELYN SILVA DE MORAIS] | Pitch em PDF, teste em outro computador, vídeo de contingência, README final, Anexo E, entrega | [pessoa-e-pitch-entrega.md](guias/pessoa-e-pitch-entrega.md) | Pitch (8), Reprodutibilidade (8), Transparência (5), Tempo (5) |
 
 Dica para escolher: quem programa melhor fica como **Dev C** (integra tudo e é o menu que vai ao vivo). O Dev A precisa conhecer bem o domínio, porque responde dúvidas dos outros.
 
