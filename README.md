@@ -181,7 +181,7 @@ br.edu.ucsal.eventos
 
 - Componentes de terceiros: JUnit 5 (EPL 2.0) e plugins Maven (Apache 2.0). Nenhum outro código de terceiros.
 - Material preexistente: nenhum. O sistema da faculdade é só referência do problema e não foi reaproveitado.
-- **Uso de IA:** a estrutura base (pom, domínio, repositório, interfaces, esqueletos, testes da base) e os rascunhos de documentação foram gerados com o Claude (Anthropic) a partir do plano da equipe e revisados pela equipe. Detalhes e revisões em **[docs/declaracao-ia-terceiros.md](docs/declaracao-ia-terceiros.md)** (Anexo E).
+- **Uso de IA:** a estrutura base e os rascunhos de documentação foram gerados com o Claude (Anthropic) a partir do plano da equipe; integrantes também usaram Claude e ChatGPT como apoio em Git, dúvidas e sugestões de código, sempre revisadas e testadas. Detalhes em **[docs/declaracao-ia-terceiros.md](docs/declaracao-ia-terceiros.md)** (Anexo E).
 
 ## Documentos da entrega
 
@@ -195,4 +195,4 @@ br.edu.ucsal.eventos
 | Pitch final | [docs/pitch.pdf](docs/pitch.pdf) |
 | Declaração de IA e terceiros (Anexo E) | [docs/declaracao-ia-terceiros.md](docs/declaracao-ia-terceiros.md) |
 | Roteiro de demonstração | [demo/roteiro-demo.md](demo/roteiro-demo.md) |
-| Vídeo de contingência | [PREENCHER: link com acesso público] |
+| Vídeo de contingência | [Assistir no Google Drive](https://drive.google.com/file/d/1tQxGfInGanK05Tin3_x0nqelfiw8MtK8/view?usp=drivesdk) |
