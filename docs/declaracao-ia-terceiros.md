@@ -1,12 +1,10 @@
 # Anexo E — Declaração de uso de inteligência artificial e de componentes de terceiros
 
-> Documento obrigatório. **A equipe deve revisar, completar e acrescentar linhas** para todo uso de IA feito por qualquer integrante durante o desenvolvimento.
-
 **Solução:** POOALAB Eventos — inscrição e certificados de eventos acadêmicos
 
-**Turma:** [PREENCHER] **Equipe:** [PREENCHER]
+**Turma:** BES, 5º semestre, noturno · **Equipe:** POOALAB Eventos
 
-**Integrantes:** [PREENCHER: nomes completos]
+**Integrantes:** Edenilton Oliveira Mota Filho, Vitor Inacio, Gilmar Araújo Santos Junior, Júlia Lessa Soares Ventura, Jade Evelyn Silva de Morais
 
 ## 1. Uso de inteligência artificial
 
@@ -14,11 +12,12 @@ Houve uso de IA? (X) Sim ( ) Não
 
 | Ferramenta ou modelo | Finalidade ou tarefa | Parte afetada | Revisão e validação realizadas |
 |---|---|---|---|
-| Claude (Anthropic), via Claude Code | Gerar a estrutura base do projeto a partir do plano da equipe (CLAUDE.md): pom.xml, classes de domínio, repositório em memória, interfaces e esqueletos com TODO, testes da base e testes-contrato | `pom.xml`, `src/main/java/.../dominio`, `.../repositorio`, assinaturas e comentários das demais classes, testes em `src/test` | [PREENCHER: quem revisou, o que foi conferido, ex.: "lido em reunião em __/11; mvn test executado por ___"] |
-| Claude (Anthropic), via Claude Code | Redigir rascunhos de documentação: README, guia de arquitetura, guias por integrante, modelos dos Anexos A–E e roteiro do pitch | `README.md`, `CLAUDE.md`, `docs/`, `demo/` | [PREENCHER] |
-| [PREENCHER: ex. Claude/ChatGPT/Copilot] | [PREENCHER: o que cada integrante pediu] | [PREENCHER: arquivos] | [PREENCHER] |
+| Claude (Anthropic), via Claude Code | Gerar a estrutura base do projeto a partir do plano da equipe (CLAUDE.md): pom.xml, classes de domínio, repositório em memória, interfaces e esqueletos com TODO, testes da base e testes-contrato | `pom.xml`, `src/main/java/.../dominio`, `.../repositorio`, assinaturas e comentários das demais classes, testes em `src/test` | Revisada por Edenilton; `mvn test` executado no IntelliJ |
+| Claude (Anthropic), via Claude Code | Redigir rascunhos de documentação: README, guia de arquitetura, guias por integrante, modelos dos Anexos A–E e roteiro do pitch | `README.md`, `CLAUDE.md`, `docs/`, `demo/` | Revisados e ajustados pela equipe |
+| Claude (Anthropic) | Montar os slides do pitch a partir do roteiro (Anexo D) e dos dados reais dos Anexos A e B | `docs/pitch.pdf` | Conteúdo conferido pela equipe antes da entrega |
+| Claude (Anthropic) — Edenilton (Dev A) | Apoio com Git, GitHub e IntelliJ (branches, commits, PRs); pontualmente, sugestões de código | `evento/`, `inscricao/`, `relatorio/` | Revisado e testado com `mvn test` antes de cada PR |
 
-**Observações sobre o uso de IA:** a IA **não** foi usada como evidência de validação. Os campos de validação (Anexo B) foram deixados em branco para a equipe preencher com pesquisa real. A implementação dos módulos marcados com `TODO Dev A/B/C` foi feita pelos integrantes [PREENCHER: confirmar e descrever se houve apoio de IA].
+**Observações sobre o uso de IA:** a IA **não** foi usada como evidência de validação. Os Anexos A e B foram preenchidos pela equipe com conversas reais com estudantes. A implementação das partes de cada desenvolvedor foi feita e commitada pelos próprios integrantes; o apoio de IA nessas partes está declarado na tabela acima. Os demais integrantes não usaram IA além do listado.
 
 ## 2. Componentes e recursos de terceiros
 
@@ -43,16 +42,16 @@ Houve material produzido antes do PooaLAB? ( ) Sim (X) Não
 
 Declaramos que as informações acima são completas e verdadeiras; que revisamos e testamos as contribuições apoiadas por IA; que identificamos as fontes, licenças e partes preexistentes relevantes; que não apresentamos como autoria própria material de terceiros; e que não compartilhamos dados pessoais, credenciais ou informações restritas de forma indevida.
 
-**Responsável pela submissão:** [PREENCHER]
+**Responsável pela submissão:** Edenilton Oliveira Mota Filho
 
 **Ciência dos integrantes**
 
 | Nome completo | Assinatura ou registro de ciência |
 |---|---|
-| [PREENCHER] | [PREENCHER] |
-| [PREENCHER] | [PREENCHER] |
-| [PREENCHER] | [PREENCHER] |
-| [PREENCHER] | [PREENCHER] |
-| [PREENCHER] | [PREENCHER] |
+| Edenilton Oliveira Mota Filho | Ciente |
+| Vitor Inacio | Ciente |
+| Gilmar Araújo Santos Junior | Ciente |
+| Júlia Lessa Soares Ventura | Ciente |
+| Jade Evelyn Silva de Morais | Ciente |
 
-**Data:** ____/____/2026
+**Data:** 23/11/2026
