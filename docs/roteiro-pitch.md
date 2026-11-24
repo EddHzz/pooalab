@@ -4,14 +4,14 @@
 
 **Solução:** POOALAB Eventos
 
-| Tempo | Parte | Conteúdo sugerido | Quem fala | Anotações da equipe |
-|---|---|---|---|---|
-| 0:00–0:40 | Abertura, público e problema | "Quem já esperou semanas por um certificado de palestra?" Público: organizadores e estudantes. Problema: inscrição desorganizada e certificado demorado. | [PREENCHER] | |
-| 0:40–1:15 | Evidências | O que as entrevistas mostraram e **qual hipótese mudou** (do Anexo B, dados reais). | [PREENCHER] | |
-| 1:15–1:50 | Proposta e recorte | Certificado sai sozinho ao encerrar o evento, conferível por código. O que ficou fora (e-mail, login, banco). | [PREENCHER] | |
-| 1:50–3:30 | **Demonstração ao vivo** | Seguir `demo/roteiro-demo.md`: inscrição recusada por vaga esgotada → check-in → encerrar → certificado → verificar o código. | [PREENCHER] | |
-| 3:30–4:20 | Decisões, testes e limites | Padrões (Chain, Strategy, Factory Method, Observer) em uma frase cada; `mvn test`; limitações. | [PREENCHER] | |
-| 4:20–5:00 | Resultado e próximo passo | O que foi alcançado, o que a equipe aprendeu, próximo passo (ex.: persistência e PDF do certificado). | [PREENCHER] | |
+| Tempo | Parte | Conteúdo sugerido | Anotações da equipe |
+|---|---|---|---|
+| 0:00–0:40 | Abertura, público e problema | "Quem já esperou semanas por um certificado de palestra?" Público: estudantes e organizadores. Problema: insegurança sobre a presença e demora no certificado. | |
+| 0:40–1:15 | Evidências | O que as entrevistas mostraram e **qual hipótese mudou** (do Anexo B, dados reais). | |
+| 1:15–1:50 | Proposta e recorte | Certificado sai sozinho ao encerrar o evento, conferível por código. O que ficou fora (e-mail, login, banco). | |
+| 1:50–3:30 | **Demonstração ao vivo** | Seguir `demo/roteiro-demo.md`: inscrição recusada por vaga esgotada → check-in → encerrar → certificado → verificar o código. | |
+| 3:30–4:20 | Decisões, testes e limites | Padrões (Chain, Strategy, Factory Method, Observer) em uma frase cada; `mvn test`; limitações. | |
+| 4:20–5:00 | Resultado e próximo passo | O que foi alcançado, o que a equipe aprendeu, próximo passo (ex.: persistência e PDF do certificado). | |
 
 ## Sugestão de slides (6 no máximo)
 
