@@ -16,6 +16,7 @@ Houve uso de IA? (X) Sim ( ) Não
 | Claude (Anthropic), via Claude Code | Redigir rascunhos de documentação: README, guia de arquitetura, guias por integrante, modelos dos Anexos A–E e roteiro do pitch | `README.md`, `CLAUDE.md`, `docs/`, `demo/` | Revisados e ajustados pela equipe |
 | Claude (Anthropic) | Montar os slides do pitch a partir do roteiro (Anexo D) e dos dados reais dos Anexos A e B | `docs/pitch.pdf` | Conteúdo conferido pela equipe antes da entrega |
 | Claude (Anthropic) — Edenilton (Dev A) | Apoio com Git, GitHub e IntelliJ (branches, commits, PRs); pontualmente, sugestões de código | `evento/`, `inscricao/`, `relatorio/` | Revisado e testado com `mvn test` antes de cada PR |
+| ChatGPT (OpenAI) — Gilmar (Dev C) | Apoio em dúvidas de implementação, análise de erros, configuração do Maven e orientações de integração com Git | `app/`, `src/test/java/br/edu/ucsal/eventos/app/`, `pom.xml`, `demo/` | Sugestões revisadas pelo desenvolvedor; `mvn test` executado com os 47 testes passando |
 
 **Observações sobre o uso de IA:** a IA **não** foi usada como evidência de validação. Os Anexos A e B foram preenchidos pela equipe com conversas reais com estudantes. A implementação das partes de cada desenvolvedor foi feita e commitada pelos próprios integrantes; o apoio de IA nessas partes está declarado na tabela acima. Os demais integrantes não usaram IA além do listado.
 
