@@ -80,7 +80,7 @@ Ordem: Dev A faz `ServicoEvento` primeiro; Dev B faz `presenca/` primeiro; Dev C
 - Uma branch por tarefa. Merge na main somente com o projeto compilando e os testes passando.
 - Nunca versionar segredos, tokens ou dados pessoais.
 
-## Regras de trabalho com o Claude Code
+## Regras de trabalho.
 
 - Toda a equipe precisa entender e saber explicar cada trecho gerado. Prefira código simples e comentado quando a lógica não for óbvia.
 - O uso de IA deve ser registrado no Anexo E (`docs/declaracao-ia-terceiros.md`): ferramenta, tarefa, parte afetada e revisão feita.
